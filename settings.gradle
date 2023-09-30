@@ -13,6 +13,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "EXTENSION"
-include ':extension'
+rootProject.name = "RED AND BLUE"
+include ':red-and-blue'
 include ':examples'
