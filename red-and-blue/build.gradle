@@ -1,8 +1,78 @@
 plugins {
-    id 'java'
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
+group = 'io.github.neboskreb'
+version = '1.1-SNAPSHOT'
+
+publishing {
+    repositories {
+        maven {
+            name "GitHub"
+            url = uri("https://maven.pkg.github.com/neboskreb/red-and-blue")
+            credentials {
+                username = project.findProperty("github_packages_user") ?: System.getenv("PACKAGES_USERNAME")
+                password = project.findProperty("github_packages_token") ?: System.getenv("PACKAGES_TOKEN")
+            }
+        }
+        maven {
+            name "MavenCentral"
+            if (version.endsWith('SNAPSHOT')) {
+                url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
+            } else  {
+                url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            }
+            credentials {
+                username = project.findProperty("mavenCentralUser") ?: System.getenv("MAVEN_USERNAME")
+                password = project.findProperty("mavenCentralPass") ?: System.getenv("MAVEN_PASSWORD")
+            }
+        }
+    }
+
+    publications {
+        mavenJava(MavenPublication) {
+            artifactId = 'red-and-blue'
+
+            from components.java
+
+            pom {
+                name = 'Red and Blue extension'
+                description = 'JUnit 5 extension for easy injection of Red and Blue instances'
+                url = 'https://github.com/neboskreb/red-and-blue'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'JBM'
+                        name = 'John Y. Pazekha'
+                        email = 'neboskreb@narod.ru'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git@github.com:neboskreb/red-and-blue.git'
+                    developerConnection = 'scm:git:ssh://github.com:neboskreb/red-and-blue.git'
+                    url = 'https://github.com/neboskreb/red-and-blue'
+                }
+            }
+        }
+
+    }
+}
+
+
+
+signing {
+    sign publishing.publications.mavenJava
 }
 
 java {
+    withSourcesJar()
     sourceCompatibility = 17
     targetCompatibility = 17
 }
