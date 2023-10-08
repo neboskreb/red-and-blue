@@ -1,4 +1,4 @@
-import com.github.neboskreb.red.and.blue.RedAndBlueFactoryExtension;
+import com.github.neboskreb.red.and.blue.RedAndBlueExtension;
 import com.github.neboskreb.red.and.blue.annotation.BlueInstance;
 import com.github.neboskreb.red.and.blue.annotation.RedInstance;
 import com.github.neboskreb.red.and.blue.model.ImmutableEntity;
@@ -7,7 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith({RedAndBlueFactoryExtension.class})
+@ExtendWith({RedAndBlueExtension.class})
 public class CopyBuilderTest {
 
     /**

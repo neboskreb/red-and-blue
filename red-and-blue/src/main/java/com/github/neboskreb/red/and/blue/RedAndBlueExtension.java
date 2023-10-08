@@ -19,7 +19,7 @@ import org.junit.jupiter.api.extension.*;
 
 import java.util.List;
 
-public class RedAndBlueFactoryExtension implements TestInstancePostProcessor,
+public class RedAndBlueExtension implements TestInstancePostProcessor,
                                                    BeforeAllCallback,
                                                    ParameterResolver
 {
