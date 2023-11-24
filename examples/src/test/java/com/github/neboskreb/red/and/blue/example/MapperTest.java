@@ -1,3 +1,5 @@
+package com.github.neboskreb.red.and.blue.example;
+
 import com.github.neboskreb.red.and.blue.RedAndBlueExtension;
 import com.github.neboskreb.red.and.blue.annotation.BlueInstance;
 import com.github.neboskreb.red.and.blue.annotation.RedInstance;
