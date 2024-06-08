@@ -74,8 +74,8 @@ signing {
 java {
     withSourcesJar()
     withJavadocJar()
-    sourceCompatibility = 17
-    targetCompatibility = 17
+    sourceCompatibility = 11
+    targetCompatibility = 11
 }
 
 test {
