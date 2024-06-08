@@ -32,9 +32,10 @@ class ObjectFactory {
     public <T> T  create(Class<T> type, COLOR color) {
         ClassAccessor<T> classAccessor = ClassAccessor.of(type, prefabValues);
         TypeTag typeTag = new TypeTag(type);
-        return switch (color) {
-            case RED -> classAccessor.getRedObject(typeTag);
-            case BLUE -> classAccessor.getBlueObject(typeTag);
-        };
+        switch (color) {
+            case RED:  return classAccessor.getRedObject(typeTag);
+            case BLUE: return classAccessor.getBlueObject(typeTag);
+            default: throw new UnsupportedOperationException("Not (yet) implemented for: " + color);
+        }
     }
 }
