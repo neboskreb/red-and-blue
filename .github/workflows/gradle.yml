@@ -47,6 +47,14 @@ jobs:
     # - name: Build with Gradle 8.5
     #   run: gradle build
 
+    - name: JUnit Report Action
+      uses: mikepenz/action-junit-report@v4
+      if: success() || failure() # always run even if the previous step fails
+      with:
+        report_paths: '**/build/test-results/test/TEST-*.xml'
+        require_tests: true
+        fail_on_failure: true
+
   dependency-submission:
 
     runs-on: ubuntu-latest
