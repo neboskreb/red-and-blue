@@ -83,13 +83,14 @@ test {
 }
 
 dependencies {
-    implementation('nl.jqno.equalsverifier:equalsverifier:3.17.1')
+    implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17,)'
 
-    implementation 'org.junit.jupiter:junit-jupiter-api:5.11.1'
-    implementation 'org.junit.jupiter:junit-jupiter-params:5.11.1'
-    runtimeOnly    'org.junit.jupiter:junit-jupiter-engine:5.11.1'
+    implementation 'org.junit.jupiter:junit-jupiter-api:[5.0.0,)'
+    implementation 'org.junit.jupiter:junit-jupiter-params:[5.0.0,)'
+    runtimeOnly    'org.junit.jupiter:junit-jupiter-engine:[5.0.0,)'
 
 
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.17.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.1'
     testRuntimeOnly    'org.junit.jupiter:junit-jupiter-engine:5.11.1'
