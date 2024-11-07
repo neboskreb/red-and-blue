@@ -82,6 +82,14 @@ test {
     useJUnitPlatform()
 }
 
+configurations {
+    configureEach {
+        resolutionStrategy {
+            force 'nl.jqno.equalsverifier:equalsverifier:3.17.1'
+        }
+    }
+}
+
 dependencies {
     implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17,)'
 
@@ -90,7 +98,6 @@ dependencies {
     runtimeOnly    'org.junit.jupiter:junit-jupiter-engine:[5.0.0,)'
 
 
-    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.17.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.11.3'
     testImplementation 'org.junit.jupiter:junit-jupiter-params:5.11.3'
     testRuntimeOnly    'org.junit.jupiter:junit-jupiter-engine:5.11.3'
