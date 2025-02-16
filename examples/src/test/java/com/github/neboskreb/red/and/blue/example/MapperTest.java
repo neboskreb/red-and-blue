@@ -31,8 +31,8 @@ public class MapperTest {
         ImmutableEntity blueCopy = mapper.toEntity(mapper.toEntityDTO(blue));
 
         // THEN
-        assertThat(redCopy).as("DTO or mapper incomplete").isEqualToComparingFieldByFieldRecursively(red);
-        assertThat(blueCopy).as("DTO or mapper incomplete").isEqualToComparingFieldByFieldRecursively(blue);
+        assertThat(redCopy).as("DTO or mapper incomplete").usingRecursiveComparison().isEqualTo(red);
+        assertThat(blueCopy).as("DTO or mapper incomplete").usingRecursiveComparison().isEqualTo(blue);
     }
 
     /**
@@ -51,7 +51,7 @@ public class MapperTest {
         EntityDTO blueDtoCopy = mapper.toEntityDTO(mapper.toEntity(blueDto));
 
         // THEN
-        assertThat(redDtoCopy).as("DTO excessive").isEqualToComparingFieldByFieldRecursively(redDto);
-        assertThat(blueDtoCopy).as("DTO excessive").isEqualToComparingFieldByFieldRecursively(blueDto);
+        assertThat(redDtoCopy).as("DTO excessive").usingRecursiveComparison().isEqualTo(redDto);
+        assertThat(blueDtoCopy).as("DTO excessive").usingRecursiveComparison().isEqualTo(blueDto);
     }
 }
