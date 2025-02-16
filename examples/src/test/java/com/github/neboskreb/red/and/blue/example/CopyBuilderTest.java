@@ -27,7 +27,7 @@ public class CopyBuilderTest {
         ImmutableEntity blueCopy = new ImmutableEntity.Builder(blue).build();
 
         // THEN
-        assertThat(redCopy).as("Copy constructor incomplete").isEqualToComparingFieldByFieldRecursively(red);
-        assertThat(blueCopy).as("Copy constructor incomplete").isEqualToComparingFieldByFieldRecursively(blue);
+        assertThat(redCopy).as("Copy constructor incomplete").usingRecursiveComparison().isEqualTo(red);
+        assertThat(blueCopy).as("Copy constructor incomplete").usingRecursiveComparison().isEqualTo(blue);
     }
 }
