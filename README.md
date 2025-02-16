@@ -10,3 +10,4 @@ Hence, newer versions of Red-and-Blue extension are not compatible with older ve
 |--------------|-----------------|
 |   1.1.0      |   < 3.17        |
 |   1.2.0      |  >= 3.17        | 
+|   1.3.0      |  >= 3.19        |
