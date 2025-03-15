@@ -85,7 +85,7 @@ test {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'nl.jqno.equalsverifier:equalsverifier:3.19.1'
+            force 'nl.jqno.equalsverifier:equalsverifier:3.19.2'
         }
     }
 }
