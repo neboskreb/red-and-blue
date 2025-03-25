@@ -77,3 +77,22 @@ assertThat(dtoCopy).as("DTO is excessive").usingRecursiveComparison().isEqualTo(
 ```
 
 **Example:** [MapperTest](/examples/src/test/java/com/github/neboskreb/red/and/blue/example/MapperTest.java)
+
+------------------------------------------------------------------------------------------------------
+
+## Incomplete de-/serialization 
+
+**Risk:** data loss
+
+**Scenario:** When a field is added to a DTO object which has manual de-/serialization code, and this code is not updated
+accordingly, such field will not be copied.
+
+**Demonstration:** // TODO
+
+**Mitigation:** marshall the DTO through the serializer/deserializer  and test it against the original DTO field-by-field
+```java
+EntityDTO copy = gson.fromJson(gson.toJson(dto), EntityDTO.class);
+assertThat(copy).as("Incomplete/Incorrect serialization").usingRecursiveComparison().isEqualTo(dto);
+```
+
+**Example:** [SerializationTest](/examples/src/test/java/com/github/neboskreb/red/and/blue/example/SerializationTest.java)
