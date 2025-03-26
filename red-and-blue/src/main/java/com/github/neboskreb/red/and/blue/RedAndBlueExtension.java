@@ -19,6 +19,15 @@ import org.junit.jupiter.api.extension.*;
 
 import java.util.List;
 
+/**
+ * Enable the red-and-blue extension on your JUnit5 test class:
+ * <pre>{@code
+ * @ExtendWith(RedAndBlueExtension.class)
+ * class MyClassTest {
+ *     ...
+ * }
+ * }</pre>
+ */
 public class RedAndBlueExtension implements TestInstancePostProcessor,
                                                    BeforeAllCallback,
                                                    ParameterResolver
@@ -26,6 +35,11 @@ public class RedAndBlueExtension implements TestInstancePostProcessor,
     private PrefabCollector prefabCollector;
     private FieldInjector fieldInjector;
     private ParamResolver paramResolver;
+
+    /** This constructor is used by JUnit framework to instantiate the extension. */
+    public RedAndBlueExtension() {
+        // Nothing here (yet)
+    }
 
     @Override
     public void beforeAll(ExtensionContext context) throws Exception {
