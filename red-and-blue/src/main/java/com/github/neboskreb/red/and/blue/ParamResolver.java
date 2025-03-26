@@ -36,7 +36,7 @@ class ParamResolver implements ParameterResolver {
     public Object resolveParameter(ParameterContext parameterContext, ExtensionContext extensionContext) throws ParameterResolutionException {
         Parameter parameter = parameterContext.getParameter();
 
-        Class<?> targetType = (Class<?>) parameter.getAnnotatedType().getType();
+        Class<?> targetType = parameter.getType();
 
         COLOR color = stream(parameter.getAnnotations())
                 .filter(a -> INJECTABLE_INSTANCE.test(a.annotationType()))
