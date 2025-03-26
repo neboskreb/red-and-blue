@@ -10,7 +10,7 @@ version = '1.3.1-SNAPSHOT'
 publishing {
     repositories {
         maven {
-            name "GitHub"
+            name = "GitHub"
             url = uri("https://maven.pkg.github.com/neboskreb/red-and-blue")
             credentials {
                 username = project.findProperty("github_packages_user") ?: System.getenv("PACKAGES_USERNAME")
@@ -18,7 +18,7 @@ publishing {
             }
         }
         maven {
-            name "MavenCentral"
+            name = "MavenCentral"
             if (version.endsWith('SNAPSHOT')) {
                 url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/")
             } else  {
