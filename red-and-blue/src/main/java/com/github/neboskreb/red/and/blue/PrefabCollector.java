@@ -16,10 +16,10 @@ import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.
 import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.helpers.MethodFilter.ONLY_GETTERS;
 
 class PrefabCollector {
-    private final List<Field> redPrefabFields;
-    private final List<Field> bluePrefabFields;
-    private final List<Method> redPrefabFactories;
-    private final List<Method> bluePrefabFactories;
+    private final Collection<Field> redPrefabFields;
+    private final Collection<Field> bluePrefabFields;
+    private final Collection<Method> redPrefabFactories;
+    private final Collection<Method> bluePrefabFactories;
 
     public PrefabCollector(Class<?> clazz) {
         redPrefabFields = getAnnotatedFields(clazz, PrefabRed.class);
