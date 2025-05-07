@@ -30,7 +30,7 @@ Maven
 <dependency>
     <groupId>io.github.neboskreb</groupId>
     <artifactId>red-and-blue</artifactId>
-    <version>1.3.1</version>
+    <version>1.3.2</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Maven
 Gradle
 ```groovy
 dependencies {
-    testImplementation 'io.github.neboskreb:red-and-blue:1.3.1'
+    testImplementation 'io.github.neboskreb:red-and-blue:1.3.2'
 }
 ```
 
@@ -51,6 +51,7 @@ Hence, newer versions of Red-and-Blue extension are not compatible with older ve
 |   1.1.0      |   < 3.17        |
 |   1.2.0      |  >= 3.17        | 
 |   1.3.0      |  >= 3.19        |
+|   1.3.2      |  >= 3.19 < 4.0  |
 
 
 
