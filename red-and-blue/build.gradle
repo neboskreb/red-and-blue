@@ -91,7 +91,7 @@ configurations {
 }
 
 dependencies {
-    implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17,)'
+    implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17, 4)'
 
     implementation platform('org.junit:junit-bom:[5.0.0,)')
     implementation 'org.junit.jupiter:junit-jupiter'
