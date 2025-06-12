@@ -13,7 +13,7 @@ test {
 
 dependencies {
     testImplementation project(":red-and-blue")
-    testImplementation 'nl.jqno.equalsverifier:equalsverifier:3.19.4'
+    testImplementation 'nl.jqno.equalsverifier:equalsverifier:4.0.2'
 
     testImplementation platform('org.junit:junit-bom:5.13.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
