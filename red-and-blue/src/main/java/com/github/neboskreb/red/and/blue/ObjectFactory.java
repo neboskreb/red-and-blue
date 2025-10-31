@@ -5,7 +5,7 @@ import static java.util.Collections.emptySet;
 
 import static nl.jqno.equalsverifier.internal.util.CachedHashCodeInitializer.passthrough;
 
-import org.objenesis.Objenesis;
+import nl.jqno.equalsverifier.internal.instantiation.UserPrefabValueProvider;
 import org.objenesis.ObjenesisStd;
 
 import java.util.EnumSet;
@@ -17,7 +17,6 @@ import java.util.Set;
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.internal.instantiation.SubjectCreator;
 import nl.jqno.equalsverifier.internal.instantiation.vintage.FactoryCache;
-import nl.jqno.equalsverifier.internal.instantiation.vintage.PrefabValuesApi;
 import nl.jqno.equalsverifier.internal.reflection.FieldCache;
 import nl.jqno.equalsverifier.internal.util.Configuration;
 import nl.jqno.equalsverifier.internal.util.Context;
@@ -26,22 +25,21 @@ import nl.jqno.equalsverifier.internal.util.FieldNameExtractor;
 class ObjectFactory {
     private static final EnumSet<Warning> NO_SUPPRESSED_WARNINGS = EnumSet.noneOf(Warning.class);
 
-    private final Objenesis objenesis;
-    private final FactoryCache factoryCache;
+    private final UserPrefabValueProvider userPprefabs = new UserPrefabValueProvider();
     private final Map<Class<?>, SubjectCreator<?>> creators;
 
     public ObjectFactory(List<RedAndBlue<?>> prefabs) {
-        objenesis = new ObjenesisStd();
-        factoryCache = new FactoryCache();
-        addPrefabs(prefabs, factoryCache);
+        addPrefabs(prefabs);
         creators = new HashMap<>();
     }
 
-    private <T> void addPrefabs (List<RedAndBlue<?>> prefabs, FactoryCache factoryCache) {
+    private <T> void addPrefabs (List<RedAndBlue<?>> prefabs) {
         for (RedAndBlue<?> pr : prefabs) {
             @SuppressWarnings("unchecked")
             RedAndBlue<T> prefab = (RedAndBlue<T>) pr;
-            PrefabValuesApi.addPrefabValues(factoryCache, objenesis, prefab.clazz(), prefab.red(), prefab.blue());
+            // TODO Seems OK to pass the red for its copy, or do we actually need a copy for some corner scenarios?
+            T redCopy = prefab.red();
+            userPprefabs.register(prefab.clazz(), prefab.red(), prefab.blue(), redCopy);
         }
     }
 
@@ -67,7 +65,7 @@ class ObjectFactory {
     private <T> SubjectCreator<T> buildSubjectCreator(Class<T> type) {
         Set<String> actualFields = FieldNameExtractor.extractFieldNames(type);
         Configuration<T> config = buildConfig(type, actualFields);
-        Context<T> context = new Context<>(config, factoryCache, new FieldCache(), objenesis);
+        Context<T> context = new Context<>(config, userPprefabs, new FactoryCache(), new FieldCache(), new ObjenesisStd());
         return context.getSubjectCreator();
     }
 
@@ -83,9 +81,10 @@ class ObjectFactory {
                                    null,
                                    false,
                                    NO_SUPPRESSED_WARNINGS,
-                                   null,
                                    emptySet(),
+                                   null,
                                    actualFields,
+                                   emptySet(),
                                    emptyList(),
                                    emptyList());
     }

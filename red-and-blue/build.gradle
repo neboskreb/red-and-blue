@@ -85,13 +85,13 @@ test {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'nl.jqno.equalsverifier:equalsverifier:3.19.4'
+            force 'nl.jqno.equalsverifier:equalsverifier:4.0'
         }
     }
 }
 
 dependencies {
-    implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17, 4)'
+    implementation 'nl.jqno.equalsverifier:equalsverifier:[4.0, 5)'
 
     implementation platform('org.junit:junit-bom:[5.0.0, 6)')
     implementation 'org.junit.jupiter:junit-jupiter'
