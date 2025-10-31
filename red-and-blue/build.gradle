@@ -93,7 +93,7 @@ configurations {
 dependencies {
     implementation 'nl.jqno.equalsverifier:equalsverifier:[3.17, 4)'
 
-    implementation platform('org.junit:junit-bom:[5.0.0,)')
+    implementation platform('org.junit:junit-bom:[5.0.0, 6)')
     implementation 'org.junit.jupiter:junit-jupiter'
     runtimeOnly    'org.junit.jupiter:junit-jupiter-engine'
 
