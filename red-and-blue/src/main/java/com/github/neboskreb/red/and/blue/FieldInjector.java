@@ -8,7 +8,7 @@ import java.util.List;
 
 import static com.github.neboskreb.red.and.blue.COLOR.BLUE;
 import static com.github.neboskreb.red.and.blue.COLOR.RED;
-import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.helpers.AnnotationHelper.getAnnotatedFields;
+import static com.github.neboskreb.red.and.blue.AnnotationHelper.getAnnotatedFields;
 
 class FieldInjector {
     private final List<Field> reds;
