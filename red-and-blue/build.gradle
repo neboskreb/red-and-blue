@@ -94,9 +94,9 @@ dependencies {
     implementation 'nl.jqno.equalsverifier:equalsverifier:[4.0, 5)'
     implementation 'org.apache.commons:commons-lang3:3.19.0'
 
-    implementation platform('org.junit:junit-bom:[5.0.0, 6)')
-    implementation 'org.junit.jupiter:junit-jupiter'
-    runtimeOnly    'org.junit.jupiter:junit-jupiter-engine'
+    compileOnly platform('org.junit:junit-bom:[5.0.0, 6)')
+    compileOnly 'org.junit.jupiter:junit-jupiter'
+    compileOnly 'org.junit.jupiter:junit-jupiter-engine'
 
 
     testImplementation platform('org.junit:junit-bom:5.14.1')

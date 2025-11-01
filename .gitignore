@@ -37,3 +37,5 @@ captures/
 
 
 .DS_Store
+/regression/junit5/build/
+/regression/junit6/build/
