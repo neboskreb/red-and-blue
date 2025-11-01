@@ -11,9 +11,9 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 import static java.util.stream.Collectors.toMap;
-import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.helpers.AnnotationHelper.getAnnotatedFields;
-import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.helpers.AnnotationHelper.getAnnotatedMethods;
-import static org.junit.jupiter.params.shadow.com.univocity.parsers.annotations.helpers.MethodFilter.ONLY_GETTERS;
+import static com.github.neboskreb.red.and.blue.AnnotationHelper.getAnnotatedFields;
+import static com.github.neboskreb.red.and.blue.AnnotationHelper.getAnnotatedMethods;
+import static com.github.neboskreb.red.and.blue.AnnotationHelper.ONLY_GETTERS;
 
 class PrefabCollector {
     private final Collection<Field> redPrefabFields;
