@@ -16,3 +16,5 @@ dependencyResolutionManagement {
 rootProject.name = "RED AND BLUE"
 include ':red-and-blue'
 include ':examples'
+include ':regression:junit5'
+include ':regression:junit6'
