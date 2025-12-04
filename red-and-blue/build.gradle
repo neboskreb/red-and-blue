@@ -6,7 +6,7 @@ plugins {
 
 def libraryGroup    = 'io.github.neboskreb'
 def libraryArtifact = 'red-and-blue'
-def libraryVersion  = '1.4.2.5-SNAPSHOT'
+def libraryVersion  = '1.4.3-SNAPSHOT'
 
 
 final stagingDirectory = layout.buildDirectory.dir('staging-deploy')
