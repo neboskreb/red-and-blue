@@ -120,13 +120,13 @@ test {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'nl.jqno.equalsverifier:equalsverifier:4.2.3'
+            force 'nl.jqno.equalsverifier:equalsverifier:4.2.5'
         }
     }
 }
 
 dependencies {
-    implementation 'nl.jqno.equalsverifier:equalsverifier:[4.0, 5)'
+    implementation 'nl.jqno.equalsverifier:equalsverifier:[4.2.5, 5)'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
 
     compileOnly platform('org.junit:junit-bom:[5.0.0, 6)')
