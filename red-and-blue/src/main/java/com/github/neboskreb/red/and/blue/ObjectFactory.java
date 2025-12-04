@@ -5,7 +5,7 @@ import static java.util.Collections.emptySet;
 
 import static nl.jqno.equalsverifier.internal.util.CachedHashCodeInitializer.passthrough;
 
-import nl.jqno.equalsverifier.internal.instantiation.UserPrefabValueProvider;
+import nl.jqno.equalsverifier.internal.instantiation.UserPrefabValueCaches;
 import org.objenesis.ObjenesisStd;
 
 import java.util.EnumSet;
@@ -16,7 +16,6 @@ import java.util.Set;
 
 import nl.jqno.equalsverifier.Warning;
 import nl.jqno.equalsverifier.internal.instantiation.SubjectCreator;
-import nl.jqno.equalsverifier.internal.instantiation.vintage.FactoryCache;
 import nl.jqno.equalsverifier.internal.reflection.FieldCache;
 import nl.jqno.equalsverifier.internal.util.Configuration;
 import nl.jqno.equalsverifier.internal.util.Context;
@@ -25,7 +24,7 @@ import nl.jqno.equalsverifier.internal.util.FieldNameExtractor;
 class ObjectFactory {
     private static final EnumSet<Warning> NO_SUPPRESSED_WARNINGS = EnumSet.noneOf(Warning.class);
 
-    private final UserPrefabValueProvider userPprefabs = new UserPrefabValueProvider();
+    private final UserPrefabValueCaches prefabCache = new UserPrefabValueCaches();
     private final Map<Class<?>, SubjectCreator<?>> creators;
 
     public ObjectFactory(List<RedAndBlue<?>> prefabs) {
@@ -39,7 +38,7 @@ class ObjectFactory {
             RedAndBlue<T> prefab = (RedAndBlue<T>) pr;
             // TODO Seems OK to pass the red for its copy, or do we actually need a copy for some corner scenarios?
             T redCopy = prefab.red();
-            userPprefabs.register(prefab.clazz(), prefab.red(), prefab.blue(), redCopy);
+            prefabCache.register(prefab.clazz(), prefab.red(), prefab.blue(), redCopy);
         }
     }
 
@@ -65,7 +64,7 @@ class ObjectFactory {
     private <T> SubjectCreator<T> buildSubjectCreator(Class<T> type) {
         Set<String> actualFields = FieldNameExtractor.extractFieldNames(type);
         Configuration<T> config = buildConfig(type, actualFields);
-        Context<T> context = new Context<>(config, userPprefabs, new FactoryCache(), new FieldCache(), new ObjenesisStd());
+        Context<T> context = new Context<>(config, prefabCache, new FieldCache(), new ObjenesisStd());
         return context.getSubjectCreator();
     }
 
