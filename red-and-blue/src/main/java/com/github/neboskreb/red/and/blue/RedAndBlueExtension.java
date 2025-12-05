@@ -50,6 +50,11 @@ public class RedAndBlueExtension implements TestInstancePostProcessor,
 
     @Override
     public void postProcessTestInstance(Object testInstance, ExtensionContext context) throws Exception {
+        // Unfortunately, this point is the earliest possibility to report this error.
+        // It would be much nicer to run this check yet in the constructor but
+        // Android's test runner is not able to collect errors at that early point.
+        AndroidVersionCheck.assertSDK(34);
+
         List<RedAndBlue<?>> prefabs = prefabCollector.collect(testInstance);
         ObjectFactory factory = new ObjectFactory(prefabs);
 
