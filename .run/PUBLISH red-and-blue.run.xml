@@ -13,7 +13,7 @@
           <option value="jreleaserDeploy" />
         </list>
       </option>
-      <option name="vmOptions" />
+      <option name="vmOptions" value="-Dorg.gradle.configuration-cache=false" />
     </ExternalSystemSettings>
     <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
     <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
