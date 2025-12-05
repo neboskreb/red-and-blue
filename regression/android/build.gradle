@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.library'
+    id 'de.mannodermaus.android-junit5'
+}
+
+android {
+    namespace 'com.github.neboskreb.red.and.blue.android'
+
+    defaultConfig {
+        minSdkVersion 34
+        targetSdkVersion 35
+        compileSdk = 35
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    androidTestImplementation project(":red-and-blue")
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.14.1'
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter-engine:5.14.1'
+    androidTestImplementation 'org.assertj:assertj-core:3.27.6'
+}
