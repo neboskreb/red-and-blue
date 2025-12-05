@@ -30,7 +30,7 @@ Maven
 <dependency>
     <groupId>io.github.neboskreb</groupId>
     <artifactId>red-and-blue</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.2.5</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -38,22 +38,15 @@ Maven
 Gradle
 ```groovy
 dependencies {
-    testImplementation 'io.github.neboskreb:red-and-blue:1.4.0'
+    testImplementation 'io.github.neboskreb:red-and-blue:1.4.2.5'
 }
 ```
 
 ## Version matching
-Red-and-Blue Extension relies on internal object factories from [EqualsVerifier library](https://github.com/jqno/equalsverifier) to populate the objects. This internal API might change between the versions.
-Hence, newer versions of Red-and-Blue extension are not compatible with older versions of EqualsVerifier, and vice versa.
+If you use both Red-and-Blue extension and [EqualsVerifier library](https://github.com/jqno/equalsverifier) you might get
+version conflict in your Maven/Gradle. In this case see chapter [Version matching](doc/version-matching.md). 
 
-| Red-and-Blue | Equals Verifier |
-|--------------|-----------------|
-|   1.1.0      |   < 3.17        |
-|   1.2.0      |  >= 3.17        | 
-|   1.3.0      |  >= 3.19        |
-|   1.3.2      |  >= 3.19 < 4.0  |
-|   1.4.0      |  >= 4.0         |
-
+The best and easiest way to resolve the conflict is to upgrade both libraries to the latest version.
 
 
 # Usage
