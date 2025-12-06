@@ -129,12 +129,12 @@ dependencies {
     implementation 'nl.jqno.equalsverifier:equalsverifier:[4.2.5, 5)'
     implementation 'org.apache.commons:commons-lang3:3.20.0'
 
-    compileOnly platform('org.junit:junit-bom:[5.0.0, 6)')
+    compileOnly platform('org.junit:junit-bom:[5.0.0,7)')
     compileOnly 'org.junit.jupiter:junit-jupiter'
     compileOnly 'org.junit.jupiter:junit-jupiter-engine'
 
 
-    testImplementation platform('org.junit:junit-bom:5.14.1')
+    testImplementation platform('org.junit:junit-bom:6.0.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly    'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.mockito:mockito-core:5.20.0'
