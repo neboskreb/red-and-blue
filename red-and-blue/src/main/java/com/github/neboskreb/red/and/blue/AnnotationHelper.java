@@ -9,6 +9,8 @@ import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.List;
 
+import static java.util.stream.Collectors.toList;
+
 public class AnnotationHelper {
     private AnnotationHelper() {/* no instance */}
 
@@ -23,7 +25,7 @@ public class AnnotationHelper {
         if (onlyGetters) {
             methods = methods.stream()
                 .filter(AnnotationHelper::isGetter)
-                .toList();
+                .collect(toList());
         }
 
         return methods;

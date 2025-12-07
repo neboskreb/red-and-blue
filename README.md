@@ -48,6 +48,11 @@ version conflict in your Maven/Gradle. In this case see chapter [Version matchin
 
 The best and easiest way to resolve the conflict is to upgrade both libraries to the latest version.
 
+## Android support
+_For instructions how to enable JUnit 5 in your Android project in the first place, please refer to [android-junit5](https://github.com/mannodermaus/android-junit5) plugin._
+
+**Android [API 34](https://apilevels.com/)** is required for Android tests. See chapter [Version matching](doc/version-matching.md) for details.
+
 
 # Usage
 
