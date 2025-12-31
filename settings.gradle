@@ -6,7 +6,7 @@ pluginManagement {
     }
 
     plugins {
-        id 'org.jreleaser' version '1.21.0'
+        id 'org.jreleaser' version '1.22.0'
         id 'com.android.library' version '8.13.1'
         id 'de.mannodermaus.android-junit5' version '1.14.0.0'
     }
