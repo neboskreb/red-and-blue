@@ -22,7 +22,7 @@ android {
 
 dependencies {
     androidTestImplementation project(":red-and-blue")
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api:5.14.1'
-    androidTestImplementation 'org.junit.jupiter:junit-jupiter-engine:5.14.1'
+    androidTestImplementation platform('org.junit:junit-bom:6.0.2')
+    androidTestImplementation 'org.junit.jupiter:junit-jupiter-api'
     androidTestImplementation 'org.assertj:assertj-core:3.27.6'
 }
