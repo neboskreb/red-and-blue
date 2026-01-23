@@ -3,5 +3,20 @@
   "extends": [
     "config:base"
   ],
-  "ignorePaths": []
+  "ignorePaths": [],
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["com.android.library", "com.android.application", "com.android.tools.build"],
+      "groupName": "Android Gradle plugin"
+    },
+    {
+      "matchPackagePatterns": ["^org.mockito:mockito"],
+      "groupName": "Mockito"
+    },
+    {
+      "matchPackagePatterns": ["^org.junit.jupiter:junit", "^org.junit:junit-bom"],
+      "groupName": "JUnit"
+    }
+  ]
 }
