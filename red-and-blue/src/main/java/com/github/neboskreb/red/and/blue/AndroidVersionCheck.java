@@ -3,12 +3,22 @@ package com.github.neboskreb.red.and.blue;
 import java.lang.reflect.Field;
 import java.util.Optional;
 
+/**
+ * Helper for checking the version of Android, in the case the runtime environment happens to be one.
+ */
 public class AndroidVersionCheck {
     private static final int ERROR = -1;
 
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     private static Optional<Integer> result;
 
+    /**
+     * Assert that, if running on Android, the SDK level is satisfactory.
+     *
+     * @param requiredSDK the minimum sufficient SDK level
+     *
+     * @throws AssertionError when the SDK is too low
+     */
     public static void assertSDK(int requiredSDK) throws AssertionError {
         Optional<Integer> available = getAndroidSDK();
 
