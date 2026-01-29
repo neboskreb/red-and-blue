@@ -47,7 +47,12 @@ public class AndroidVersionCheck {
     private static Optional<Integer> detectAvailableSDK() {
         try {
             Class<?> version = Class.forName("android.os.Build$VERSION");
-            return Optional.of(extractIntSdk(version));
+            int sdk = extractIntSdk(version);
+            if (sdk == 0) {
+                // We are in a JUnit test of Android project. Normal Java rules apply.
+                return Optional.empty();
+            }
+            return Optional.of(sdk);
 
         } catch (ClassNotFoundException e) {
             // Not an Android environment
