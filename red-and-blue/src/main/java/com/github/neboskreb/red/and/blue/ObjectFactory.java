@@ -5,7 +5,6 @@ import static java.util.Collections.emptySet;
 
 import static nl.jqno.equalsverifier.internal.util.CachedHashCodeInitializer.passthrough;
 
-import nl.jqno.equalsverifier.internal.instantiation.UserPrefabValueCaches;
 import org.objenesis.ObjenesisStd;
 
 import java.util.EnumSet;
@@ -15,7 +14,8 @@ import java.util.Map;
 import java.util.Set;
 
 import nl.jqno.equalsverifier.Warning;
-import nl.jqno.equalsverifier.internal.instantiation.SubjectCreator;
+import nl.jqno.equalsverifier.internal.valueproviders.SubjectCreator;
+import nl.jqno.equalsverifier.internal.valueproviders.UserPrefabValueCaches;
 import nl.jqno.equalsverifier.internal.reflection.FieldCache;
 import nl.jqno.equalsverifier.internal.util.Configuration;
 import nl.jqno.equalsverifier.internal.util.Context;
