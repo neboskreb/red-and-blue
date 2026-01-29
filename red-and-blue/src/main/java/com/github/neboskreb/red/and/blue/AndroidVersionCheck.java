@@ -12,6 +12,8 @@ public class AndroidVersionCheck {
     @SuppressWarnings("OptionalUsedAsFieldOrParameterType")
     private static Optional<Integer> result;
 
+    private AndroidVersionCheck() {/*no instance*/}
+
     /**
      * Assert that, if running on Android, the SDK level is satisfactory.
      *
