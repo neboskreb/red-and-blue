@@ -136,7 +136,7 @@ dependencies {
 
 
     // We shall stay on JUnit 5 to avoid elevating Java from 11 to 17, which is required by JUnit 6
-    testImplementation platform('org.junit:junit-bom:5.14.2')
+    testImplementation platform('org.junit:junit-bom:5.14.3')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly    'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.mockito:mockito-core:5.21.0'
