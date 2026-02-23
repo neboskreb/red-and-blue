@@ -120,7 +120,7 @@ test {
 configurations {
     configureEach {
         resolutionStrategy {
-            force 'nl.jqno.equalsverifier:equalsverifier:4.3.1'
+            force 'nl.jqno.equalsverifier:equalsverifier:4.4.1'
         }
     }
 }
