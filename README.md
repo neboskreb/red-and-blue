@@ -30,7 +30,7 @@ Maven
 <dependency>
     <groupId>io.github.neboskreb</groupId>
     <artifactId>red-and-blue</artifactId>
-    <version>1.4.3.2</version>
+    <version>1.4.4.1</version>
     <scope>test</scope>
 </dependency>
 ```
@@ -38,7 +38,7 @@ Maven
 Gradle
 ```groovy
 dependencies {
-    testImplementation 'io.github.neboskreb:red-and-blue:1.4.3.2'
+    testImplementation 'io.github.neboskreb:red-and-blue:1.4.4.1'
 }
 ```
 

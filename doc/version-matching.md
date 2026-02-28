@@ -28,6 +28,7 @@ the actual API level is OK.
 |   1.4.0      |  >= 4.0 < 4.2.5 | 16               | "               |
 |   1.4.2.5    |  >= 4.2.5       | "                | 34              |
 |   1.4.3.1    |  >= 4.3.1       | "                | "               |
+|   1.4.4.1    |  >= 4.4.1       | "                | "               |
 
 
 ```mermaid
@@ -49,14 +50,16 @@ displayMode: compact
         1.3.2     :done,   rab132,    after rab131, 06-11-2025
         1.4.0     :done,   rab140,    after rab132, 06-12-2025
         1.4.2.5   :done,   rab1425,   after rab140, 29-01-2026
-        1.4.3.1   :active, rab1431,   after rab1425, until next_release
-    
+        1.4.3.1   :done,   rab1431,   after rab1425, 28-02-2026
+        1.4.4.1   :active, rab1441,   after rab1431, until next_release
+
     section min version of<br>Equals Verifier
         < 3.19    :done,   ev317,     01-02-2024,   until rab120
         3.19      :done,   ev319,     after ev317,  until rab140
         4.0       :done,   ev40,      after ev319,  until rab1425
         4.2.5     :done,   ev425,     after ev40,   until rab1431
-        4.3.1     :active, ev431,     after ev425,  until next_release
+        4.3.1     :done,   ev431,     after ev425,  until rab1441
+        4.4.1     :active, ev441,     after ev425,  until next_release
 
     
     section minimal<br>Java version
