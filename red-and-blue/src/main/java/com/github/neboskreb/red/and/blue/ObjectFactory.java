@@ -71,12 +71,16 @@ class ObjectFactory {
 
     private static <T> Configuration<T> buildConfig(Class<T> type, Set<String> actualFields) {
         return Configuration.build(type,
+                                   null,
+                                   null,
                                    emptySet(),
                                    emptySet(),
                                    emptySet(),
                                    emptySet(),
                                    passthrough(),
                                    false,
+                                   null,
+                                   null,
                                    null,
                                    false,
                                    NO_SUPPRESSED_WARNINGS,
