@@ -34,7 +34,7 @@ public class RedAndBlueExtension implements TestInstancePostProcessor,
 {
     private PrefabCollector prefabCollector;
     private FieldInjector fieldInjector;
-    private ParamResolver paramResolver;
+    private Resolvers paramResolver;
 
     /** This constructor is used by JUnit framework to instantiate the extension. */
     public RedAndBlueExtension() {
@@ -60,7 +60,7 @@ public class RedAndBlueExtension implements TestInstancePostProcessor,
 
         fieldInjector.inject(testInstance, factory);
 
-        paramResolver = new ParamResolver(factory);
+        paramResolver = new Resolvers(new ParamResolver(factory), new FactoryParamResolver(factory));
     }
 
     @Override

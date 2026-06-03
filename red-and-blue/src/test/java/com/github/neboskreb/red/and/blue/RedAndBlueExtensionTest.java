@@ -48,6 +48,19 @@ class RedAndBlueExtensionTest extends ExampleBase {
         assertEquals(1L, redLong.value());
         assertEquals(-1L, blueLong.value());
     }
+
+    @Test
+    void testFactoryParameter(@RedAndBlueFactory IRedAndBlueFactory factory, @RedAndBlueFactory Object another) {
+        CompositeString red = factory.createRed(CompositeString.class);
+        CompositeString blue = factory.createBlue(CompositeString.class);
+        assertEquals("red", red.value());
+        assertEquals("blue", blue.value());
+
+        assertNotNull(another);
+        assertSame(factory, another);
+
+        assertSame(ExampleBase.factory, factory);
+    }
 }
 
 abstract class ExampleBase {
