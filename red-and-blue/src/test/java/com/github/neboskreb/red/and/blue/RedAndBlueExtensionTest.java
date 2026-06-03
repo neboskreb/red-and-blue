@@ -1,6 +1,7 @@
 package com.github.neboskreb.red.and.blue;
 
 import com.github.neboskreb.red.and.blue.annotation.BlueInstance;
+import com.github.neboskreb.red.and.blue.annotation.RedAndBlueFactory;
 import com.github.neboskreb.red.and.blue.annotation.PrefabBlue;
 import com.github.neboskreb.red.and.blue.annotation.PrefabRed;
 import com.github.neboskreb.red.and.blue.annotation.RedInstance;
@@ -47,6 +48,19 @@ class RedAndBlueExtensionTest extends ExampleBase {
         assertEquals(1L, redLong.value());
         assertEquals(-1L, blueLong.value());
     }
+
+    @Test
+    void testFactoryParameter(@RedAndBlueFactory IRedAndBlueFactory factory, @RedAndBlueFactory Object another) {
+        CompositeString red = factory.createRed(CompositeString.class);
+        CompositeString blue = factory.createBlue(CompositeString.class);
+        assertEquals("red", red.value());
+        assertEquals("blue", blue.value());
+
+        assertNotNull(another);
+        assertSame(factory, another);
+
+        assertSame(ExampleBase.factory, factory);
+    }
 }
 
 abstract class ExampleBase {
@@ -67,8 +81,19 @@ abstract class ExampleBase {
         return "blue";
     }
 
+    @RedAndBlueFactory
+    protected static IRedAndBlueFactory factory;
+
     @Test
     void testBaseParameterInjection(@BlueInstance CompositeLong blue) {
         assertEquals(-1L, blue.value());
+    }
+
+    @Test
+    void testFactoryField() {
+        assertNotNull(factory);
+
+        CompositeString blue = factory.createBlue(CompositeString.class);
+        assertEquals("blue", blue.value());
     }
 }

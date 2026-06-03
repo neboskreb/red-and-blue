@@ -21,7 +21,7 @@ import nl.jqno.equalsverifier.internal.util.Configuration;
 import nl.jqno.equalsverifier.internal.util.Context;
 import nl.jqno.equalsverifier.internal.util.FieldNameExtractor;
 
-class ObjectFactory {
+class ObjectFactory implements IRedAndBlueFactory {
     private static final EnumSet<Warning> NO_SUPPRESSED_WARNINGS = EnumSet.noneOf(Warning.class);
 
     private final UserPrefabValueCaches prefabCache = new UserPrefabValueCaches();
@@ -40,6 +40,16 @@ class ObjectFactory {
             T redCopy = prefab.red();
             prefabCache.register(prefab.clazz(), prefab.red(), prefab.blue(), redCopy);
         }
+    }
+
+    @Override
+    public <T> T createRed(Class<T> type) {
+        return create(type, COLOR.RED);
+    }
+
+    @Override
+    public <T> T createBlue(Class<T> type) {
+        return create(type, COLOR.BLUE);
     }
 
     public <T> T  create(Class<T> type, COLOR color) {

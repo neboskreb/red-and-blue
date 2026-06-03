@@ -127,6 +127,27 @@ class MyComplexClassTest {
 }
 ```
 
+## Object factory
+
+In rare cases when you need to create Red and Blue instances dynamically, you can use `RedAndBlueFactory`:
+```java
+@ExtendWith(RedAndBlueExtension.class)
+class DynamicClassTest {
+    @RedAndBlueFactory
+    private IRedAndBlueFactory factory;
+
+    @ParameterizedTest
+    @MethodSource("classesToTest")
+    void testFactoryParameter(Class<?> clazz) {
+        Object red  = factory.createRed(clazz);
+        Object blue = factory.createBlue(clazz);
+        ...
+    }
+}
+```
+
+Object factory is a singleton. It can be injected into a parameter, a field, or a static field. 
+
 ## Tests structure
 
 Inheriting fields and methods from a base class is supported:
