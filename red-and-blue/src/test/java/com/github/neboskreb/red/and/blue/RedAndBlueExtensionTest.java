@@ -1,6 +1,7 @@
 package com.github.neboskreb.red.and.blue;
 
 import com.github.neboskreb.red.and.blue.annotation.BlueInstance;
+import com.github.neboskreb.red.and.blue.annotation.RedAndBlueFactory;
 import com.github.neboskreb.red.and.blue.annotation.PrefabBlue;
 import com.github.neboskreb.red.and.blue.annotation.PrefabRed;
 import com.github.neboskreb.red.and.blue.annotation.RedInstance;
@@ -67,8 +68,19 @@ abstract class ExampleBase {
         return "blue";
     }
 
+    @RedAndBlueFactory
+    protected static IRedAndBlueFactory factory;
+
     @Test
     void testBaseParameterInjection(@BlueInstance CompositeLong blue) {
         assertEquals(-1L, blue.value());
+    }
+
+    @Test
+    void testFactoryField() {
+        assertNotNull(factory);
+
+        CompositeString blue = factory.createBlue(CompositeString.class);
+        assertEquals("blue", blue.value());
     }
 }
