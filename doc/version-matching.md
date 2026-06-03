@@ -40,7 +40,7 @@ displayMode: compact
         title       Compatibility timeline
 
         .                     :milestone,         diagram_start,   01-01-2024, 0d
-        .                     :milestone,         next_release,    30-06-2026, 0d
+        .                     :milestone,         next_release,    31-12-2026, 0d
         
     section Red and Blue
         1.1.0     :done,   rab110,    01-02-2024,   10-03-2024
@@ -51,7 +51,8 @@ displayMode: compact
         1.4.0     :done,   rab140,    after rab132, 06-12-2025
         1.4.2.5   :done,   rab1425,   after rab140, 29-01-2026
         1.4.3.1   :done,   rab1431,   after rab1425, 28-02-2026
-        1.4.4.1   :active, rab1441,   after rab1431, until next_release
+        1.4.4.1   :done,   rab1441,   after rab1431, 03-06-2026
+        1.4.5     :active, rab145,    after rab1441, until next_release
 
     section min version of<br>Equals Verifier
         < 3.19    :done,   ev317,     01-02-2024,   until rab120
@@ -59,7 +60,7 @@ displayMode: compact
         4.0       :done,   ev40,      after ev319,  until rab1425
         4.2.5     :done,   ev425,     after ev40,   until rab1431
         4.3.1     :done,   ev431,     after ev425,  until rab1441
-        4.4.1     :active, ev441,     after ev425,  until next_release
+        4.4.1     :active, ev441,     after ev431,  until next_release
 
     
     section minimal<br>Java version
