@@ -1,13 +1,12 @@
 package com.github.neboskreb.red.and.blue.junit6;
 
 import com.github.neboskreb.red.and.blue.RedAndBlueExtension;
-import com.github.neboskreb.red.and.blue.annotation.BlueInstance;
-import com.github.neboskreb.red.and.blue.annotation.PrefabBlue;
-import com.github.neboskreb.red.and.blue.annotation.PrefabRed;
-import com.github.neboskreb.red.and.blue.annotation.RedInstance;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import com.github.neboskreb.red.and.blue.IRedAndBlueFactory;
+import com.github.neboskreb.red.and.blue.annotation.*;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @ExtendWith(RedAndBlueExtension.class)
@@ -36,5 +35,23 @@ class Junit6SmokeTest {
     void testFieldInjection() {
         assertEquals("red", redField.value());
         assertEquals("blue", blueField.value());
+    }
+
+    @RedAndBlueFactory
+    private IRedAndBlueFactory factory;
+
+    @Test
+    void testFactoryParameter(@RedAndBlueFactory IRedAndBlueFactory factory) {
+        MyObject red = factory.createRed(MyObject.class);
+        MyObject blue = factory.createBlue(MyObject.class);
+        assertEquals("red", red.value());
+        assertEquals("blue", blue.value());
+    }
+
+    @Test
+    void testFactoryField() {
+        assertNotNull(factory);
+        MyObject blue = factory.createBlue(MyObject.class);
+        assertEquals("blue", blue.value());
     }
 }
