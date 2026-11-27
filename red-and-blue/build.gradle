@@ -130,11 +130,11 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.21.0'
 
     // We shall stay on JUnit 5 to avoid elevating Java from 11 to 17, which is required by JUnit 6
-    compileOnly 'org.junit.jupiter:junit-jupiter-api:5.14.4'
+    compileOnly 'org.junit.jupiter:junit-jupiter-api:5.14.5'
 
 
     // We shall stay on JUnit 5 to avoid elevating Java from 11 to 17, which is required by JUnit 6
-    testImplementation platform('org.junit:junit-bom:5.14.4')
+    testImplementation platform('org.junit:junit-bom:5.14.5')
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly    'org.junit.platform:junit-platform-launcher'
     testImplementation 'org.mockito:mockito-core:5.24.0'
